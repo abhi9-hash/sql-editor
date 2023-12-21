@@ -5,15 +5,20 @@ import "codemirror/lib/codemirror.css";
 import "codemirror/theme/cobalt.css";
 
 function QuerySpace(props) {
+
   return (
-    <Fragment>
+    <Fragment style={{zIndex:-8888}}>
       <CodeMirror
-        style={{ maxHeight: "20rem", marginBottom: "3rem", position:'fixed' }}
+      // ref="editor"
+      autoScroll
+      
+        style={{ maxHeight: "20rem", marginBottom: "3rem", position:'fixed', zIndex:-1000 }}
         value={props.defaultQuery}
         options={{
           mode: "sql",
-          theme: "cobalt",
+          theme: 'elegant',
           lineNumbers: true,
+          tabSize:10,
         }}
       />
     </Fragment>
