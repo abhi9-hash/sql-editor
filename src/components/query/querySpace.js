@@ -1,21 +1,14 @@
 import { Fragment } from "react";
 
-import { UnControlled as CodeMirror } from "react-codemirror2";
+import CodeMirror from "react-codemirror";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/cobalt.css";
 
-import { getPropTypes } from "../../utils";
-
-/**
- * The component to display the code editor for the SQL query
- * @param props
- * @returns {JSX.Element}
- * @constructor
- */
 function QuerySpace(props) {
   return (
     <Fragment>
       <CodeMirror
+        style={{ maxHeight: "20rem", marginBottom: "3rem", position:'fixed' }}
         value={props.defaultQuery}
         options={{
           mode: "sql",
@@ -26,7 +19,5 @@ function QuerySpace(props) {
     </Fragment>
   );
 }
-
-QuerySpace.propTypes = getPropTypes("defaultQuery");
 
 export default QuerySpace;

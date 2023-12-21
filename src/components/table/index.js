@@ -17,15 +17,9 @@ import Alert from "react-bootstrap/Alert";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons/faCheck";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import { CSVLink } from "react-csv";
 
-import { getPropTypes } from "../../utils";
-
-/**
- * The parent component used to display the results.
- * @param props
- * @returns {JSX.Element}
- * @constructor
- */
 function BaseTable(props) {
   const {
     getTableProps,
@@ -112,7 +106,7 @@ function BaseTable(props) {
   );
 
   const resultStats = (
-    <Col lg={4}>
+    <Col lg={3}>
       <Alert variant={"success"}>
         <FontAwesomeIcon icon={faCheck} /> Fetched{" "}
         <strong>{rows.length}</strong> results in{" "}
@@ -127,7 +121,7 @@ function BaseTable(props) {
     <Container fluid className="h-100">
       <Row>
         {props.timeOfRequest ? resultStats : <></>}
-        <Col lg={4}>
+        <Col lg={3}>
           <FloatingLabel label="Search to filter results">
             <Form.Control
               aria-label="Text input to filter results"
@@ -139,7 +133,29 @@ function BaseTable(props) {
             />
           </FloatingLabel>
         </Col>
-        <Col lg={4}>{props.paginate ? entriesDropdown : <></>}</Col>
+        <Col lg={3}>{props.paginate ? entriesDropdown : <></>}</Col>
+        <Col lg={3}>
+          {" "}
+          {props.data.length !== 0 && (
+            <CSVLink
+              size={"sm"}
+              variant={"outline-primary"}
+              style={{
+                textDecoration:'none',
+                borderRadius: 0,
+                padding: "0.5rem",
+                borderColor:'inherit'
+              }}
+              data={props.data}
+              filename={"my-file.csv"}
+              className="btn btn-link"
+              target="_blank"
+
+            >
+              <FontAwesomeIcon icon={faDownload} /> {"Download data as CSV"}
+            </CSVLink>
+          )}
+        </Col>
       </Row>
       <Row
         style={{
@@ -183,14 +199,5 @@ function BaseTable(props) {
     </Container>
   );
 }
-
-BaseTable.propTypes = getPropTypes(
-  "columns",
-  "data",
-  "isLoaded",
-  "error",
-  "paginate",
-  "timeOfRequest"
-);
 
 export default BaseTable;

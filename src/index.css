@@ -22,11 +22,12 @@ body {
 
 .heading {
     font-weight: bold;
-    color: #282c34;
+    color: #50bfff;
 }
 
 .sidebar {
     border-right: 1px solid #ececec;
+    border-left: 1px solid #ececec;
 }
 
 .tableLinks, .tabLinks {

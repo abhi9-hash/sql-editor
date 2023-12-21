@@ -8,46 +8,10 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons/faChevronDown";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons/faChevronRight";
 import { faTable } from "@fortawesome/free-solid-svg-icons/faTable";
 
-import FILE_NAMES from "../../data/fileNames";
-import { closeTab, getPropTypes, openNewTab } from "../../utils";
+import { closeTab } from "../../utils";
 
-/**
- * The component to display the side bar.
- * @param props
- * @returns {JSX.Element}
- * @constructor
- */
-function SideBar(props) {
-  const menuLinks = FILE_NAMES.map((fileName) => (
-    <Row className="nav-item" key={fileName}>
-      <Col>
-        <a
-          href={`/${fileName}`}
-          className={
-            fileName === props.activeKey ? "nav-link active" : "nav-link"
-          }
-          onClick={(e) => {
-            e.preventDefault();
-            openNewTab(
-              {
-                title: fileName,
-                entries: [],
-              },
-              props.tabs,
-              props.setTabs,
-              props.setActiveKey,
-              `SELECT * FROM \`${fileName}\``
-            );
-          }}
-        >
-          <FontAwesomeIcon
-            icon={fileName === props.activeKey ? faChevronDown : faChevronRight}
-          />{" "}
-          <FontAwesomeIcon icon={faTable} /> {fileName}
-        </a>
-      </Col>
-    </Row>
-  ));
+function OpenTabs(props) {
+
   const openTabs = props.tabs.map((tab) => (
     <Row className="nav-item align-items-center" key={tab.eventKey}>
       <Col xs={10}>
@@ -94,11 +58,6 @@ function SideBar(props) {
       className="sidebar"
       id={`sidebar${props.mobile ? "mobile" : ""}`}
     >
-      <p className="text-secondary heading mt-3">All Tables</p>
-      <Container fluid className="tableLinks">
-        {menuLinks}
-      </Container>
-      <hr />
       <p className="text-secondary heading mt-3">Open Tabs</p>
       <Container fluid className="tabLinks">
         {openTabs}
@@ -107,12 +66,4 @@ function SideBar(props) {
   );
 }
 
-SideBar.propTypes = getPropTypes(
-  "activeKey",
-  "tabs",
-  "setTabs",
-  "setActiveKey",
-  "mobile"
-);
-
-export default SideBar;
+export default OpenTabs;

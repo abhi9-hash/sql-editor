@@ -6,10 +6,10 @@ import Tab from "react-bootstrap/Tab";
 import ResultsTable from "../table/resultsTable";
 import ColumnsTable from "../table/columnsTable";
 import { Fragment } from "react";
-import useFile from "../../hooks/useFile";
+import useFetchData from "../../hooks/useFetchData";
 
 function TabPane({ tab }) {
-  const { result, isLoaded, error, timeOfRequest } = useFile(tab.title);
+  const { result, isLoaded, error, timeOfRequest } = useFetchData(tab.title);
   return (
     <Fragment>
       <QueryButtons />

@@ -4,8 +4,6 @@ import Button from "react-bootstrap/Button";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons/faPlay";
-import { faDownload } from "@fortawesome/free-solid-svg-icons/faDownload";
-import { faSave } from "@fortawesome/free-solid-svg-icons/faSave";
 
 /**
  * The component to display the buttons in the query space.
@@ -17,27 +15,12 @@ function QueryButtons() {
     {
       icon: faPlay,
       title: "Run Query",
-    },
-    {
-      icon: faSave,
-      title: "Save Query",
-    },
-    {
-      icon: faDownload,
-      title: "Export data as CSV",
-    },
-    {
-      icon: faDownload,
-      title: "Export data as JSON",
-    },
+    }
   ].map(({ icon, title }, index) => (
     <Button
       size={"sm"}
       variant={"outline-primary"}
       style={{
-        borderLeft: "none",
-        borderTop: "none",
-        borderBottom: "none",
         borderRadius: 0,
         padding: "0.5rem",
       }}

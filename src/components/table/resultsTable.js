@@ -1,17 +1,7 @@
 import { useMemo } from "react";
 
 import BaseTable from "./index";
-import ColumnsTable from "./columnsTable";
 
-import { getPropTypes } from "../../utils";
-
-/**
- * The table with the results of the run query operation. Uses the BaseTable component to display the results in a
- * table.
- * @param props
- * @returns {JSX.Element}
- * @constructor
- */
 function ResultsTable(props) {
   const { result, isLoaded, error, timeOfRequest } = props;
   const data = useMemo(() => result, [result]);
@@ -38,7 +28,5 @@ function ResultsTable(props) {
     />
   );
 }
-
-ColumnsTable.propTypes = getPropTypes("tab");
 
 export default ResultsTable;

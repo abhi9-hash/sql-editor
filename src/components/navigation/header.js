@@ -6,31 +6,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons/faPlus";
 import { faBars } from "@fortawesome/free-solid-svg-icons/faBars";
 
-import { getPropTypes, openNewTab } from "../../utils";
-import { ReactComponent as AtlanLogo } from "../../logo.svg";
+import { openNewTab } from "../../utils";
+import { ReactComponent as Logo } from "../../logo.svg";
 
-/**
- * The React component to display the header.
- * @param props
- * @returns {JSX.Element}
- * @constructor
- */
 function Header(props) {
   return (
     <Navbar className="shadow p-3">
       <Container fluid>
         <Navbar.Brand href="#home">
-          <AtlanLogo width={100} />
+          <Logo width={100} />
         </Navbar.Brand>
         <Navbar.Text>
           <Button
             variant={"outline-primary"}
             onClick={() => {
               openNewTab(
-                {
-                  title: `Query ${props.queryCount}`,
-                  entries: [],
-                },
+                `Query ${props.queryCount}`,
+                [],
                 props.tabs,
                 props.setTabs,
                 props.setActiveKey
@@ -59,15 +51,5 @@ function Header(props) {
     </Navbar>
   );
 }
-
-Header.propTypes = getPropTypes(
-  "queryCount",
-  "tabs",
-  "setTabs",
-  "setActiveKey",
-  "setQueryCount",
-  "setSidebarOpen",
-  "sidebarOpen"
-);
 
 export default Header;

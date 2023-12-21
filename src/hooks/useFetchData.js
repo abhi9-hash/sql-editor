@@ -8,19 +8,17 @@ import FILE_NAMES from "../data/fileNames";
  * @param {string} fileName
  * @returns {{result: *[], timeOfRequest: number, error: string, isLoaded: boolean}}
  */
-function useFile(fileName) {
+function useFetchData(fileName) {
   const startTime = useMemo(() => new Date().getTime(), []);
   const [endTime, setEndTime] = useState(new Date().getTime());
   const [result, setResult] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState(null);
 
-  const inProduction = process.env.NODE_ENV === "production";
+  // const inProduction = process.env.NODE_ENV === "production";
+  const baseUrl = process.env.REACT_APP_BASE_URL
 
-  // The endpoint is used only when the app is in production.
-  const fetchUrl = inProduction
-    ? `https://api.github.com/repos/graphql-compose/graphql-compose-examples/contents/examples/northwind/data/csv/${fileName}.csv?ref=master`
-    : `http://localhost:3000/data/${fileName}.csv`;
+  const fetchUrl = `${baseUrl}/${fileName}.csv?ref=master`;
 
   useEffect(() => {
     // If the file name can't be found.
@@ -29,14 +27,14 @@ function useFile(fileName) {
     } else {
       fetch(fetchUrl)
         .then((res) => {
-          return inProduction ? res.json() : res.text();
+          return res.json();
+          //  : res.text();
         })
         .then(
           (res) => {
             // GitHub sends over base64 encoded content
-            const rawResults = inProduction
-              ? parseCSV(atob(res.content))
-              : parseCSV(res);
+            const rawResults = parseCSV(atob(res.content));
+            // : parseCSV(res);
             setResult(
               rawResults.map((rawResult) => {
                 // Use the custom processing function for each field type.
@@ -58,7 +56,7 @@ function useFile(fileName) {
           }
         );
     }
-  }, [fetchUrl, fileName, inProduction]);
+  }, [fetchUrl, fileName]);
 
   return {
     error,
@@ -68,4 +66,4 @@ function useFile(fileName) {
   };
 }
 
-export default useFile;
+export default useFetchData;

@@ -1,7 +1,6 @@
-import { PROP_TYPES } from "./data/propTypes";
-
 export const openNewTab = (
-  { title, entries },
+  title,
+  entries,
   tabs,
   setTabs,
   setActiveKey,
@@ -20,12 +19,8 @@ export const openNewTab = (
     });
     setTabs(tabs);
     setActiveKey(tabs[tabs.length - 1].eventKey);
-    document.title = `${
-      tabs[tabs.length - 1].eventKey
-    } | Online SQL Editor | Front-end Task | Atlan`;
   } else {
     setActiveKey(existingTab[0].eventKey);
-    document.title = `${existingTab[0].eventKey} | Online SQL Editor | Front-end Task | Atlan`;
   }
 };
 
@@ -36,20 +31,11 @@ export const closeTab = (eventKey, tabs) => {
   let newActiveKey = "";
   if (copiedTabs.length > 0) {
     newActiveKey = copiedTabs[tabToBeClosed % copiedTabs.length].eventKey;
-    document.title = `${newActiveKey} | Online SQL Editor | Front-end Task | Atlan`;
-  } else {
-    document.title = "Online SQL Editor | Front-end Task | Atlan";
   }
 
   return [copiedTabs, newActiveKey];
 };
 
-/**
- * Custom function for parsing the CSVs obtained from the APIs.
- * @param {string} text
- * @param {string|RegExp} rowDelimiter
- * @param {string|RegExp} entryDelimiter
- */
 export const parseCSV = (text, rowDelimiter = "\n", entryDelimiter = ",") => {
   const lines = text.split(rowDelimiter);
   const headers = lines[0].split(entryDelimiter);
@@ -76,14 +62,4 @@ export const getFieldDetails = (fieldName) => {
     type: "String",
     processFn: (x) => x,
   };
-};
-
-export const getPropTypes = function () {
-  const propTypes = {};
-  for (let i = 0; i < arguments.length; i++) {
-    if (PROP_TYPES.hasOwnProperty(arguments[i])) {
-      propTypes[arguments[i]] = PROP_TYPES[arguments[i]];
-    }
-  }
-  return propTypes;
 };

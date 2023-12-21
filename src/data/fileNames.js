@@ -1,15 +1,9 @@
 const FILE_NAMES = [
-  "categories",
-  "customers",
-  "employee_territories",
   "employees",
-  "order_details",
   "orders",
   "products",
-  "regions",
-  "shippers",
-  "suppliers",
-  "territories",
+  "categories",
+  "customers",
 ];
 
 export default FILE_NAMES;
