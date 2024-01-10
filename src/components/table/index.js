@@ -28,6 +28,7 @@ function BaseTable(props) {
     page,
     rows,
     prepareRow,
+    data,
     canPreviousPage,
     canNextPage,
     pageCount,
@@ -146,7 +147,7 @@ function BaseTable(props) {
                 padding: "0.5rem",
                 borderColor: "inherit",
               }}
-              data={rows}
+              data={data}
               filename={"my-file.csv"}
               className="btn btn-link"
               target="_blank"
