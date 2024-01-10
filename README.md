@@ -30,7 +30,7 @@ The application in question is created as a task for Atlan. It gives users the a
 - **Active use of the `useMemo` hook**. The 'useMemo' hook optimizes performance by memoizing the results of computations with the same dependencies, reducing unnecessary re-computations. In the case of tables, the data is fully 'memoized', enhancing efficiency.
 - **Streamlined API call management**. Through judicious use of the useEffect hook, the project has successfully curtailed the number of API calls, resulting in a nearly 2-second reduction in processing time after each user interaction.
 
-# Addtional Optimization Practices
+## Addtional Optimization Practices
 - **Intelligent use of the React-Bootstrap library.** Let's suppose we want to import a `Table` component. There are two ways to do that:
   - `import { Table } from "react-bootstrap";`
   - `import Table from "react-bootstrap/Alert";`   
