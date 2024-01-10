@@ -53,7 +53,7 @@ function OpenTabs(props) {
     <Container
       fluid
       style={{
-        height: `${props.mobile ? "100%" : "calc(100vh - 8rem)"}`,
+        height: `${props.mobile ? "100%" : "calc(100vh)"}`,
       }}
       className="sidebar glass"
       id={`sidebar${props.mobile ? "mobile" : ""}`}
