@@ -1,13 +1,13 @@
 import "./App.css";
-import Header from "./components/navigation/header";
+import Header from "./components/nav-bars/header";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import AllTablesSidebar from "./components/navigation/all-tables";
-import OpenTabsSidebar from "./components/navigation/open-tabs";
+import AllTablesSidebar from "./components/nav-bars/allTables";
+import OpenTabsSidebar from "./components/nav-bars/openTabs";
 import QueryTabs from "./components/tabs";
 import { useState } from "react";
-import  Accordion from "@mui/material/Accordion";
+import Accordion from "@mui/material/Accordion";
 import "@fontsource/raleway";
 import "./index.css";
 
@@ -44,7 +44,7 @@ function App() {
         </Accordion>
       )}
 
-      <Container fluid>
+      <Container fluid style={{backgrounfColor:"blue"}}>
         <Row>
           <Col lg={2} md={3} className={"d-none d-lg-block d-xl-block"}>
             <AllTablesSidebar

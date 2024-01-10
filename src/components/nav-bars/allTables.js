@@ -46,7 +46,7 @@ function AllTables(props) {
       style={{
         height: `${props.mobile ? "100%" : "calc(100vh - 8rem)"}`,
       }}
-      className="sidebar"
+      className="sidebar glass"
       id={`sidebar${props.mobile ? "mobile" : ""}`}
     >
       <p className="text-secondary heading mt-3">All Tables</p>

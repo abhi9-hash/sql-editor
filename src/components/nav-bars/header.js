@@ -11,8 +11,8 @@ import { ReactComponent as Logo } from "../../logo.svg";
 
 function Header(props) {
   return (
-    <Navbar className="shadow p-3">
-      <Container fluid>
+    <Navbar className="shadow" style={{backgroundColor:"transparent"}} >
+      <Container fluid className="glass">
         <Navbar.Brand href="#home">
           <Logo width={100} />
         </Navbar.Brand>

@@ -60,6 +60,7 @@ function QueryTabs(props) {
       onSelect={(activeKey) => {
         props.setActiveKey(activeKey === null ? "" : activeKey);
       }}
+      className="glass"
     >
       <Row>
         <Nav variant="tabs">{tabs}</Nav>

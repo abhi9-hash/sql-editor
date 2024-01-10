@@ -2,7 +2,8 @@
   text-align: center;
 }
 body {
-  font-family: 'Raleway', sans-serif !important;
+  font-family: "Gill Sans", sans-serif !important;
+  background-color:"#007aff"
 }
 
 .CodeMirror {
@@ -19,7 +20,17 @@ body {
   text-overflow: ellipsis;
 }
 
-.sidebar .nav-link:hover, .sidebar .active {
+.glass {
+  background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.sidebar .nav-link:hover,
+.sidebar .active {
   color: var(--bs-primary);
 }
 
@@ -32,7 +43,8 @@ body {
   border-right: 1px solid #ececec;
 }
 
-.tableLinks, .tabLinks {
+.tableLinks,
+.tabLinks {
   border-left: 1px solid var(--bs-secondary);
 }
 

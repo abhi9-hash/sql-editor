@@ -12,6 +12,8 @@
     "@fortawesome/react-fontawesome": "^0.1.15",
     "@mui/core": "^5.0.0-alpha.54",
     "@mui/material": "^5.15.1",
+    "@uiw/codemirror-theme-vscode": "^4.21.21",
+    "@uiw/react-codemirror": "^4.21.21",
     "bootstrap": "5.1.0",
     "codemirror": "^5.63.0",
     "cra-template": "1.1.2",

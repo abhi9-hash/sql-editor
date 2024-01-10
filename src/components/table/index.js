@@ -118,39 +118,38 @@ function BaseTable(props) {
   const finalResult = props.paginate ? page : rows;
 
   return (
-    <Container fluid className="h-100">
+    <Container fluid className="h-80 p-3 glass">
       <Row>
         {props.timeOfRequest ? resultStats : <></>}
         <Col lg={3}>
           <FloatingLabel label="Search to filter results">
             <Form.Control
-              aria-label="Text input to filter results"
+              placeholder="Text input to filter results"
               onInput={(e) => {
                 setGlobalFilter(e.target.value);
               }}
               id="filterInput"
-              disabled={rows.length === 0}
+              // disabled={rows.length === 0}
             />
           </FloatingLabel>
         </Col>
         <Col lg={3}>{props.paginate ? entriesDropdown : <></>}</Col>
         <Col lg={3}>
           {" "}
-          {props.data.length !== 0 && (
+          {rows.length !== 0 && (
             <CSVLink
               size={"sm"}
               variant={"outline-primary"}
               style={{
-                textDecoration:'none',
+                textDecoration: "none",
                 borderRadius: 0,
                 padding: "0.5rem",
-                borderColor:'inherit'
+                borderColor: "inherit",
               }}
-              data={props.data}
+              data={rows}
               filename={"my-file.csv"}
               className="btn btn-link"
               target="_blank"
-
             >
               <FontAwesomeIcon icon={faDownload} /> {"Download data as CSV"}
             </CSVLink>
@@ -181,7 +180,7 @@ function BaseTable(props) {
             {finalResult.map((row) => {
               prepareRow(row);
               return (
-                <tr {...row.getRowProps()}>
+                <tr>
                   {row.cells.map((cell) => {
                     return (
                       <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
