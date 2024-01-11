@@ -21,6 +21,9 @@ The application in question is created as a task for Atlan. It gives users the a
   - **Cumulative Layout Shift**: `0ms`
 
 - **[GTmetrix](https://gtmetrix.com/)**: The fully loaded time is **0.7 seconds**, with the performance rating of **100%** and structure rating of **98%**. The site receives an A grade too.
+
+  ![Screenshot 1 from PageSpeed Insights](https://drive.google.com/file/d/1G4Xd1YOAkHun-7Jn614J41_y2w5ZzWb8/view?usp=drive_link)
+  ![Screenshot 2 from PageSpeed Insights](https://drive.google.com/file/d/1Nla18PUtnSqi2j72Nka5_s2Nv5f0Q6Cr/view?usp=drive_link)
   
 
 
