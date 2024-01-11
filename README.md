@@ -22,8 +22,9 @@ The application in question is created as a task for Atlan. It gives users the a
 
 - **[GTmetrix](https://gtmetrix.com/)**: The fully loaded time is **0.7 seconds**, with the performance rating of **100%** and structure rating of **98%**. The site receives an A grade too.
 
-  ![Screenshot 1 from PageSpeed Insights](https://drive.google.com/uc?id=1G4Xd1YOAkHun-7Jn614J41_y2w5ZzWb8)
-  ![Screenshot 2 from PageSpeed Insights](https://drive.google.com/uc?id=1Nla18PUtnSqi2j72Nka5_s2Nv5f0Q6Cr)
+  ![Screenshot 1 from PageSpeed Insights](./src/images/img1.png)
+
+  ![Screenshot 1 from PageSpeed Insights](./src/images/img2.png)
   
 
 
@@ -38,7 +39,7 @@ The application in question is created as a task for Atlan. It gives users the a
   - `import Table from "react-bootstrap/Alert";`   
 The former imports the entire library before extracting the Table component, whereas the latter, a more optimized approach, directly imports only the Table component, significantly enhancing load times – the method adopted in this project.
 - **Minimizing state changes for optimal performance**: Despite a slight reduction in the feature set, the project has excelled in load time due to a conscious effort to minimize the number of state changes during re-renders.
-- **Hosted on Netlify**: The Jamstack modern web architecture (based on JavaScript, APIs and Markup) of Netlify enables hosted sites to load faster, be always always, and provide instant, highly performant functionality to customers.
+- **Hosted on Vercel**: The website is hosted on Vercel, renowned for being among the swiftest free hosting platforms for JavaScript-based web apps. This is attributed to its efficient CDN and caching features. Additionally, Vercel offers complimentary SSL during hosting, enhancing both page security and potential search engine ranking.
 
 ## How to run locally?
 
