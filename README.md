@@ -1,39 +1,46 @@
 # Online SQL Editor
 
-This is an online SQL editor built specifically for the frontend task of Atlan's front-end internship. This particular project is built using **[React](https://reactjs.org/)**, and the **[React Bootstrap](https://react-bootstrap.github.io/)** front-end framework. It originally contains a data dump borrowed from [this](https://github.com/graphql-compose/graphql-compose-examples/tree/master/examples/northwind/data/csv) repository. The sections below detail the salient features of this project.
+The application in question is created as a task for Atlan. It gives users the ability to execute SQL queries in an online editor and examine the results of those queries' execution.
+**[React](https://reactjs.org/)**, and the **[React Bootstrap](https://react-bootstrap.github.io/)** are used for developing client-side application. Data is borrowed from [available](https://github.com/graphql-compose/graphql-compose-examples/tree/master/examples/northwind/data/csv) repository. The sections below detail the salient features of this project.
 
 ## Features
 
-1. **Tab Based Interface**: An easy-to-use tab based interface allows the user to switch between multiple queries at once. Want to view a table _and_ run a query at the same time? Sure, go right ahead. Each tab maintains its own separate state, so as long as you don't reload the page, you can jump right back to where you left a tab.
-2. **Dynamic Table Views**: The list of tables is fetched at first, but the actual data isn't. Only when you click on the name of a table, are the entries fetched. Keeping the application lightweight, and blazing fast.
-3. **Defining Custom Types for Columns**: Each person is not the same; similarly, each column is not the same. You might want to specify certain processing functions: want to parse an image, or return an integer. You can do all this, and the table will display the processed result.
-4. **Result Statistics**: The user will also be alerted about the time taken to complete a query, giving the user a measure to check the performance of the system.
-5. **Ability to save the results as JSON, XML, or CSV**: This application includes functionality to save the results of a query in JSON, XML, and CSV formats. _**Pro Tip**: You can also save a query,so that you don't have to type the same thing twice!_
+1. **Tabs for Navigation**: Do you want to simultaneously browse a table and run a query? Yes, please proceed. You can return to a tab's previous location as long as you don't reload the page because each tab retains its own distinct state.
+2. **Dynamic Tables**: The real data is not fetched at first, only the list of tables is. The entries are only retrieved when you click on the name of a table, hence maintaining the application's speed and light weight.
+3. **Response Time**:Additionally, the user can have a look on the duration to finish a query, providing them with an indicator to assess the system's efficiency.
+4. **Ability to save the results as CSV**: This application includes functionality to save the data of a query in CSV format.
+5. **Search Functionality**: Users can search data in table based on keywords they enter.
+    _**Add-Ons**: You can also save a query till the page gets refreshed,so that you don't have to type the same thing twice!_
 
 ## Performance Audit
-
-- **[GTmetrix](https://gtmetrix.com/)**: The fully loaded time is **1.4 seconds**, with the first contentful paint at **969 ms**. The site receives an A grade too.
-- **[web.dev](https://web.dev/measure)**: The load time according to web.dev is **2.2 seconds**. The site also scores **96 points in performance** and **100 points in best practices**. The exact metrics are:
-  - **First Contentful Paint**: `2.2s`
-  - **Speed Index**: `2.2s`
-  - **Largest Contentful Paint**: `2.2s`
-  - **Time to Interactive**: `2.2s`
+- **[PageSpeed Insights](https://pagespeed.web.dev/analysis/https-sql-editor-clientside-vercel-app/i39y9bh8wz?form_factor=desktop)**: The site also scores **98 points in performance** and **100 points in best practices**. The exact metrics are:
+  - **First Contentful Paint**: `0.8s`
+  - **Last Contentful Paint**: `0.8s`
+  - **Speed Index**: `0.9s`
   - **Total Blocking Time**: `0ms`
-  - **Cumulative Layout Shift**: `0`
-- **Chrome DevTools**: The load time according to Chrome DevTools is **3.97 seconds**. I got this load time from the `load` event in the Network tab of the DevTools. Along the same lines, the `DOMContentLoaded` event fires after **3.60 seconds**.
+  - **Cumulative Layout Shift**: `0ms`
+
+- **[GTmetrix](https://gtmetrix.com/)**: The fully loaded time is **0.7 seconds**, with the performance rating of **100%** and structure rating of **98%**. The site receives an A grade too.
+
+  ![Screenshot 1 from PageSpeed Insights](https://drive.google.com/uc?id=1G4Xd1YOAkHun-7Jn614J41_y2w5ZzWb8)
+  ![Screenshot 2 from PageSpeed Insights](https://drive.google.com/uc?id=1Nla18PUtnSqi2j72Nka5_s2Nv5f0Q6Cr)
+  
 
 
 ## Optimisations
-- The most time-saving optimisation would be **dynamic fetching**. The rows of a table are fetched only when the user requests it. Not a second before. This shaves a lot of seconds off our initial load time, by distributing that across requests.
-- **Extensive use of the `useMemo` hook**. The `useMemo` hook reduces the number of re-computations by storing the results of computations with the same dependencies. The data of tables is entirely 'memoised'.
-- **Intelligent use of the React-Bootstrap library.** Let's suppose we want to import a `Alert` component. There are two ways to do that:
-  - `import { Alert } from "react-bootstrap";`
-  - `import Alert from "react-bootstrap/Alert";`   
-  The first option imports the entire library, and then imports the Alert component, whereas the second, more optimised, way imports just the Alert component, and nothing else. This too, shaves a lot of the load time, and this is what this project uses.
-- **Keeping the number of state changes as low as possible**. While this has been accompanied by a slight reduction in the feature set, it has more than made up for it in the load time of a re-render.
-- **Reduced the number of API calls**. I have reduced the number of API calls, by using the `useEffect` hook, which shaved off almost 2 seconds after each click.
+- **Dynamic fetching of table data**: A table's rows are only retrieved upon the user's request i.e. by clicking table name. By spreading total number of requests over queries, this reduces our initial load time by several seconds.
+- **Active use of the `useMemo` hook**: The 'useMemo' hook optimizes performance by memoizing the results of computations with the same dependencies, reducing unnecessary re-computations. In the case of tables, the data is fully 'memoized', enhancing efficiency.
+- **Streamlined API call management**: Through judicious use of the useEffect hook, the project has successfully curtailed the number of API calls, resulting in a nearly 2-second reduction in processing time after each user interaction.
 
-## Available Scripts
+## Addtional Optimization Practices
+- **Intelligent use of the React-Bootstrap library:** Let's suppose we want to import a `Table` component. There are two ways to do that:
+  - `import { Table } from "react-bootstrap";`
+  - `import Table from "react-bootstrap/Alert";`   
+The former imports the entire library before extracting the Table component, whereas the latter, a more optimized approach, directly imports only the Table component, significantly enhancing load times – the method adopted in this project.
+- **Minimizing state changes for optimal performance**: Despite a slight reduction in the feature set, the project has excelled in load time due to a conscious effort to minimize the number of state changes during re-renders.
+- **Hosted on Netlify**: The Jamstack modern web architecture (based on JavaScript, APIs and Markup) of Netlify enables hosted sites to load faster, be always always, and provide instant, highly performant functionality to customers.
+
+## How to run locally?
 
 In the project directory, you can run:
 
