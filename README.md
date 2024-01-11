@@ -13,29 +13,29 @@ The application in question is created as a task for Atlan. It gives users the a
     _**Add-Ons**: You can also save a query till the page gets refreshed,so that you don't have to type the same thing twice!_
 
 ## Performance Audit
-
-- **[GTmetrix](https://gtmetrix.com/)**: The fully loaded time is **1.4 seconds**, with the first contentful paint at **969 ms**. The site receives an A grade too.
-- **[web.dev](https://web.dev/measure)**: The load time according to web.dev is **2.2 seconds**. The site also scores **96 points in performance** and **100 points in best practices**. The exact metrics are:
-  - **First Contentful Paint**: `2.2s`
-  - **Speed Index**: `2.2s`
-  - **Largest Contentful Paint**: `2.2s`
-  - **Time to Interactive**: `2.2s`
+- **[PageSpeed Insights](https://pagespeed.web.dev/analysis/https-sql-editor-clientside-vercel-app/i39y9bh8wz?form_factor=desktop)**: The site also scores **98 points in performance** and **100 points in best practices**. The exact metrics are:
+  - **First Contentful Paint**: `0.8s`
+  - **Last Contentful Paint**: `0.8s`
+  - **Speed Index**: `0.9s`
   - **Total Blocking Time**: `0ms`
-  - **Cumulative Layout Shift**: `0`
-- **Chrome DevTools**: The load time according to Chrome DevTools is **3.97 seconds**. I got this load time from the `load` event in the Network tab of the DevTools. Along the same lines, the `DOMContentLoaded` event fires after **3.60 seconds**.
+  - **Cumulative Layout Shift**: `0ms`
+
+- **[GTmetrix](https://gtmetrix.com/)**: The fully loaded time is **0.7 seconds**, with the performance rating of **100%** and structure rating of **98%**. The site receives an A grade too.
+  
 
 
 ## Optimisations
-- The most time-saving optimisation would be **dynamic fetching of table data**. A table's rows are only retrieved upon the user's request i.e. by clicking table name. By spreading total number of requests over queries, this reduces our initial load time by several seconds.
-- **Active use of the `useMemo` hook**. The 'useMemo' hook optimizes performance by memoizing the results of computations with the same dependencies, reducing unnecessary re-computations. In the case of tables, the data is fully 'memoized', enhancing efficiency.
-- **Streamlined API call management**. Through judicious use of the useEffect hook, the project has successfully curtailed the number of API calls, resulting in a nearly 2-second reduction in processing time after each user interaction.
+- **Dynamic fetching of table data**: A table's rows are only retrieved upon the user's request i.e. by clicking table name. By spreading total number of requests over queries, this reduces our initial load time by several seconds.
+- **Active use of the `useMemo` hook**: The 'useMemo' hook optimizes performance by memoizing the results of computations with the same dependencies, reducing unnecessary re-computations. In the case of tables, the data is fully 'memoized', enhancing efficiency.
+- **Streamlined API call management**: Through judicious use of the useEffect hook, the project has successfully curtailed the number of API calls, resulting in a nearly 2-second reduction in processing time after each user interaction.
 
 ## Addtional Optimization Practices
-- **Intelligent use of the React-Bootstrap library.** Let's suppose we want to import a `Table` component. There are two ways to do that:
+- **Intelligent use of the React-Bootstrap library:** Let's suppose we want to import a `Table` component. There are two ways to do that:
   - `import { Table } from "react-bootstrap";`
   - `import Table from "react-bootstrap/Alert";`   
 The former imports the entire library before extracting the Table component, whereas the latter, a more optimized approach, directly imports only the Table component, significantly enhancing load times – the method adopted in this project.
-- **Minimizing state changes for optimal performance**. Despite a slight reduction in the feature set, the project has excelled in load time due to a conscious effort to minimize the number of state changes during re-renders. 
+- **Minimizing state changes for optimal performance**: Despite a slight reduction in the feature set, the project has excelled in load time due to a conscious effort to minimize the number of state changes during re-renders.
+- **Hosted on Netlify**: The Jamstack modern web architecture (based on JavaScript, APIs and Markup) of Netlify enables hosted sites to load faster, be always always, and provide instant, highly performant functionality to customers.
 
 ## How to run locally?
 
