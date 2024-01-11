@@ -1,10 +1,10 @@
 import QueryButtons from "../query-space/queryButtons";
-import Row from "react-bootstrap/Row";
+// import Row from "react-bootstrap/Row";
 import QueryEditor from "../query-space/queryEditor";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import ResultsTable from "../table/resultsTable";
-import SideNavTable from "../table/sideNavTable";
+import TableColumns from "../table/tableColumns";
 import { Fragment } from "react";
 import useFetchData from "../../hooks/useFetchData";
 
@@ -13,14 +13,14 @@ function TabPane({ tab }) {
   return (
     <Fragment>
       <QueryButtons />
-      <Row
+      {/* <Row className="glass"
         style={{
           width: "100%",
           height: "20vh",
         }}
-      >
+      > */}
         <QueryEditor defaultQuery={tab.defaultQuery} />
-      </Row>
+      {/* </Row> */}
       <hr />
       <Tabs defaultActiveKey="results" className="mb-3">
         <Tab eventKey="results" title="Results">
@@ -33,7 +33,7 @@ function TabPane({ tab }) {
           />
         </Tab>
         <Tab eventKey="columns" title="Columns">
-          <SideNavTable
+          <TableColumns
             result={result}
             isLoaded={isLoaded}
             error={error}

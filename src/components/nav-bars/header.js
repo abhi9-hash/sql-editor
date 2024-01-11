@@ -7,7 +7,7 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons/faPlus";
 import { faBars } from "@fortawesome/free-solid-svg-icons/faBars";
 
 import { openNewTab } from "../../utils";
-import { ReactComponent as Logo } from "../../logo.svg";
+import { ReactComponent as Logo } from "../../images/logo.svg";
 
 function Header(props) {
   return (

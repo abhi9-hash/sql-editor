@@ -7,16 +7,18 @@ import { faPlay } from "@fortawesome/free-solid-svg-icons/faPlay";
 
 function QueryButtons() {
   return (
-    <ButtonToolbar className="mb-2 mt-3">
-      <ButtonGroup className="me-2">
+    <ButtonToolbar className="mb-2 mt-3 glass">
+      <ButtonGroup className="ml-2">
         <Button
           size={"sm"}
-          variant={"outline-primary"}
           style={{
             borderRadius: 0,
             padding: "0.5rem",
+            color:'#0d6efd',
+            backgroundColor:'transparent',
+            borderColor:'transparent'
           }}
-          className={"mr-2"}
+          className={"m-2"}
         >
           <FontAwesomeIcon icon={faPlay} /> Run Query
         </Button>

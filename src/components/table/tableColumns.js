@@ -4,7 +4,7 @@ import BaseTable from "./index";
 
 import { getFieldDetails } from "../../utils";
 
-function SideNavTable(props) {
+function TableColumns(props) {
   const { result, isLoaded, error } = props;
   const data = useMemo(() => {
     if (result.length === 0) {
@@ -42,4 +42,4 @@ function SideNavTable(props) {
   );
 }
 
-export default SideNavTable;
+export default TableColumns;
