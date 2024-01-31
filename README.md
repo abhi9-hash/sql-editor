@@ -1,6 +1,6 @@
 # Online SQL Editor
 
-The application in question is created as a task for Atlan. It gives users the ability to execute SQL queries in an online editor and examine the results of those queries' execution.
+The application gives users the ability to execute SQL queries in an online editor and examine the results of those queries' execution.
 **[React](https://reactjs.org/)**, and the **[React Bootstrap](https://react-bootstrap.github.io/)** are used for developing client-side application. Data is borrowed from [available](https://github.com/graphql-compose/graphql-compose-examples/tree/master/examples/northwind/data/csv) repository. The sections below detail the salient features of this project.
 
 ## Features
